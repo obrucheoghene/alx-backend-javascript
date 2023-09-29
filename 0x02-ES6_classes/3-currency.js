@@ -1,31 +1,40 @@
 /* eslint-disable no-underscore-dangle */
 class Currency {
   constructor(code, name) {
-    this._code = code;
-    this._name = name;
+    this.code = code;
+    this.name = name;
   }
 
-  // Getter and setter for code attribute
+  /**
+     * @param {String} code
+     */
+  set code(code) {
+    if (typeof code !== 'string') {
+      throw new TypeError('Code must be a String');
+    }
+    this._code = code;
+  }
+
   get code() {
     return this._code;
   }
 
-  set code(newCode) {
-    this._code = newCode;
+  /**
+     * @param {String} name
+     */
+  set name(name) {
+    if (typeof name !== 'string') {
+      throw new TypeError('Name must be a String');
+    }
+    this._name = name;
   }
 
-  // Getter and setter for name attribute
   get name() {
     return this._name;
   }
 
-  set name(newName) {
-    this._name = newName;
-  }
-
-  // Method to display full currency information
   displayFullCurrency() {
-    return `${this._name} (${this._code})`;
+    return `${this.name} (${this.code})`;
   }
 }
 
