@@ -1,20 +1,14 @@
-/* eslint-disable consistent-return */
-function calculateNumber(type, a, b) {
-  const roundedA = Math.round(a);
-  const roundedB = Math.round(b);
-
+const calculateNumber = (type, a, b) => {
   if (type === 'SUM') {
-    return roundedA + roundedB;
+    return Math.round(a) + Math.round(b);
   }
   if (type === 'SUBTRACT') {
-    return roundedA - roundedB;
+    return Math.round(a) - Math.round(b);
   }
   if (type === 'DIVIDE') {
-    if (roundedB === 0) {
-      return 'Error';
-    }
-    return roundedA / roundedB;
+    return Math.round(b) === 0 ? 'Error' : Math.round(a) / Math.round(b);
   }
-}
+  return 0;
+};
 
 module.exports = calculateNumber;
